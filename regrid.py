@@ -272,9 +272,9 @@ def check_src_data_ranges(src_data, temp_or_salt):
 
 
 def do_regridding(src_name, src_hgrids, src_vgrid, src_data_file, src_var,
-                  dest_name, dest_hgrid, dest_vgrid, dest_data_file, dest_var,
-                  dest_mask=None, month=None, regrid_weights=None, use_mpi=False,
-                  write_ic=False, mom_version):
+                  dest_name, dest_hgrid, dest_vgrid, dest_data_file, dest_var, 
+                  mom_version, dest_mask=None, month=None, regrid_weights=None, use_mpi=False,
+                  write_ic=False):
 
     if not check_dependencies(use_mpi):
         return None
@@ -516,9 +516,9 @@ def main():
     ret = do_regridding(args.src_name, (args.src_hgrid,), args.src_vgrid,
                         args.src_data_file, args.src_var,
                         args.dest_name, args.dest_hgrid, args.dest_vgrid,
-                        args.dest_data_file, args.dest_var,
+                        args.dest_data_file, args.dest_var, args.mom_version,
                         args.dest_mask, args.month, args.regrid_weights,
-                        args.use_mpi, args.mom_version)
+                        args.use_mpi)
     return ret is None
 
 if __name__ == '__main__':
